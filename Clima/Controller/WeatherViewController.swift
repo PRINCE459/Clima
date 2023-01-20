@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Clima
 //
-//  Created by Angela Yu on 01/09/2019.
-//  Copyright © 2019 App Brewery. All rights reserved.
+//  Created by Prince on 2/09/2022.
+//  Copyright © 2022 Prince. All rights reserved.
 //
 
 import UIKit
@@ -38,30 +38,28 @@ extension WeatherViewController: UITextFieldDelegate {
     
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
+        searchTextField.text = ""
+        searchTextField.placeholder = "Search"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
-        return true
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        } else {
-            textField.placeholder = "Type something"
-            return false
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if let city = searchTextField.text {
             weatherManager.fetchWeather(cityName: city)
         }
-        
         searchTextField.text = ""
-        
+        searchTextField.placeholder = "Search"
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text != "" {
+            if let city = searchTextField.text {
+                weatherManager.fetchWeather(cityName: city)
+            }
+        } else {
+            textField.placeholder = "Type something"
+        }
     }
 }
 

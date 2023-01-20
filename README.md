@@ -1,5 +1,5 @@
 Clima :- a Simple Live Weather ForeCasting Application that show Live Weather Updates 
-Built by using Swift 5 and Storyboard and also implemented MVC Architecture :)
+Built by using Swift 5, Storyboard, Rest API and also implemented MVC Architecture :)
 
 Demo :- 
 
